@@ -24,23 +24,23 @@
                     </Grid>
                 </Button>
             </StackPanel>
-            <TabControl Width="1000">
+            <TabControl x:Name="TabControl" Width="1000">
                 <TabItem x:Name="Table1" Header="TAB 1" GotFocus="Table1_GotFocus"/>
-                <TabItem Header="TAB 2"/>
-                <TabItem Header="TAB 3"/>
-                <TabItem Header="TAB 4"/>
-                <TabItem Header="TAB 5"/>
-                <TabItem Header="TAB 6"/>
-                <TabItem Header="TAB 7"/>
-                <TabItem Header="TAB 8"/>
-                <TabItem Header="TAB 9"/>
-                <TabItem Header="TAB 10"/>
+                <TabItem x:Name="Table2" Header="TAB 2" GotFocus="Table1_GotFocus"/>
+                <TabItem x:Name="Table3" Header="TAB 3" GotFocus="Table1_GotFocus"/>
+                <TabItem x:Name="Table4" Header="TAB 4" GotFocus="Table1_GotFocus"/>
+                <TabItem x:Name="Table5" Header="TAB 5" GotFocus="Table1_GotFocus"/>
+                <TabItem x:Name="Table6" Header="TAB 6" GotFocus="Table1_GotFocus"/>
+                <TabItem x:Name="Table7" Header="TAB 7" GotFocus="Table1_GotFocus"/>
+                <TabItem x:Name="Table8" Header="TAB 8" GotFocus="Table1_GotFocus"/>
+                <TabItem x:Name="Table9" Header="TAB 9" GotFocus="Table1_GotFocus"/>
+                <TabItem x:Name="Table10" Header="TAB 10" GotFocus="Table1_GotFocus"/>
             </TabControl>
             <Frame x:Name="AdminFrame"  HorizontalAlignment="Center"  Margin="0 40 0 0" NavigationUIVisibility="Hidden"/>
             <Button x:Name="ReturnButton" HorizontalAlignment="Left" Width="240" Background="Teal" BorderBrush="Black" Click="ReturnButton_Click" Margin="0 20 0 0">
                 <Grid>
                     <TextBlock>
-                        Вернутся к окну авторизации
+                        Выйти из аккаунта
                     </TextBlock>
                 </Grid>
             </Button>

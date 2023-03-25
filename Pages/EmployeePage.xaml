@@ -14,8 +14,13 @@
 
             </DataGrid>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="SurNameEmployee" materialDesign:HintAssist.Hint="Введите фамилию сотрудника" materialDesign:HintAssist.HelperText="Фамилия сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="14" Width="300" Margin ="0 0 0 20"/>
-                <TextBox x:Name="NameEmployee" materialDesign:HintAssist.Hint="Введите имя сотрудника" materialDesign:HintAssist.HelperText="Имя сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="14" Width="300"/>
+                <TextBox x:Name="EmployeeSurname" materialDesign:HintAssist.Hint="Введите фамилию сотрудника" materialDesign:HintAssist.HelperText="Фамилия сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
+                <TextBox x:Name="EmployeeName" materialDesign:HintAssist.Hint="Введите имя сотрудника" materialDesign:HintAssist.HelperText="Имя сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
+                <TextBox x:Name="EmployeeMiddleName" materialDesign:HintAssist.Hint="Введите отчество сотрудника" materialDesign:HintAssist.HelperText="Отчество сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
+                <TextBox x:Name="EmployeePassNum" materialDesign:HintAssist.Hint="Введите номер паспорта сотрудника" materialDesign:HintAssist.HelperText="Номер паспорта сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="EmployeePassNum_PreviewTextInput"/>
+                <TextBox x:Name="EmployeePassSer" materialDesign:HintAssist.Hint="Введите серию паспорта сотрудника" materialDesign:HintAssist.HelperText="Серия паспорта сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
+                <TextBox x:Name="EmployeeAge" materialDesign:HintAssist.Hint="Введите возраст сотрудника" materialDesign:HintAssist.HelperText="Возраст сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
+                <ComboBox x:Name="RolesBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Выберите роль"/>
             </StackPanel>
         </StackPanel>
     </Grid>

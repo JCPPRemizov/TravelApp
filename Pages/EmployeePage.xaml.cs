@@ -22,6 +22,7 @@ namespace TravelApp.Pages
     public partial class EmployeePage : Page
     {
         EmployeeTableAdapter employeeTable = new EmployeeTableAdapter();
+        RolesTableAdapter rolesTable= new RolesTableAdapter();
         public EmployeePage()
         {
             InitializeComponent();
@@ -31,6 +32,14 @@ namespace TravelApp.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             EmployeeDataGrid.ItemsSource = employeeTable.GetData();
+            RolesBox.ItemsSource = rolesTable.GetData();
+            RolesBox.DisplayMemberPath = "role_name";
+            RolesBox.SelectedValuePath = "id";
+        }
+
+        private void EmployeePassNum_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
         }
     }
 }

@@ -21,10 +21,23 @@ namespace TravelApp.Windows
     public partial class AdminWindow : Window
     {
         public static AuthorizationWindow authorizationWindow;
+        private static readonly Page[] pages = new Page[]
+        {
+            new RolesPage(),
+            new AuthorizationPage(),
+            new EmployeePage(),
+            new TouristPage(),
+            new VoucherPage(),
+            new CitiesPage(),
+            new CountriesPage(),
+            new HotelsPage(),
+            new CarrierPage(),
+            new ReceiptPage()
+        };
         public AdminWindow()
         {
             InitializeComponent();
-            Table1.Focus();
+            TabControl.SelectedIndex = 0;
         }
 
         private void HideAppButton_Click(object sender, RoutedEventArgs e)
@@ -43,14 +56,9 @@ namespace TravelApp.Windows
             authorizationWindow.Show();
         }
 
-        private void Table1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            AdminFrame.Content = new EmployeePage();
-        }
-
         private void Table1_GotFocus(object sender, RoutedEventArgs e)
         {
-            AdminFrame.Content = new EmployeePage();
+            AdminFrame.Content = pages[TabControl.SelectedIndex];
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
