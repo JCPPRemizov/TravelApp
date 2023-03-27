@@ -12,12 +12,14 @@
         <StackPanel Orientation="Horizontal">
             <DataGrid x:Name="ReceiptDataGrid" BorderBrush="Black" Margin="0 0 10 0" Background="Bisque" IsReadOnly="True" PreviewKeyDown="ReceiptDataGrid_PreviewKeyDown" SelectionChanged="ReceiptDataGrid_SelectionChanged"/>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="DeposMoneyBox" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Внесенная сумма" Margin="0 0 0 10"/>
+                <TextBox x:Name="DeposMoneyBox" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Внесенная сумма" Margin="0 0 0 10" PreviewTextInput="DeposMoneyBox_PreviewTextInput"/>
                 <ComboBox x:Name="TouristID" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Турист" Margin="0 0 0 10"/>
-                <ComboBox x:Name="VoucherID" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Путевка" Margin="0 0 0 10"/>
+                <ComboBox x:Name="VoucherID" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Путевка" SelectionChanged="VoucherID_SelectionChanged" Margin="0 0 0 10"/>
+                <TextBlock x:Name="VoucherPrice" Margin="0 0 0 10"></TextBlock>
+                <TextBlock x:Name="ChangeMoney" Margin="0 0 0 10"></TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
                     <Button x:Name="EditButton" Content="Изменить" HorizontalAlignment="Left" Margin="0 0 20 0" Click="EditButton_Click" BorderBrush="Black" Background="Teal"/>
-                    <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" BorderBrush="Black" Click="AddButton_Click" Background="Teal"  Margin="0 0 20 0"/>
+                    <Button x:Name="AddButton" Content="Добавить и выгрузить" HorizontalAlignment="Left" BorderBrush="Black" Click="AddButton_Click" Background="Teal"  Margin="0 0 20 0"/>
                     <Button x:Name="LoadButton" Content="Выгрузить" HorizontalAlignment="Left" BorderBrush="Black" Background="Teal" Click="LoadButton_Click"/>
                 </StackPanel>
             </StackPanel>

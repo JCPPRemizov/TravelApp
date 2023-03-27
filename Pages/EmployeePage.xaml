@@ -12,12 +12,12 @@
         <StackPanel Orientation="Horizontal">
             <DataGrid x:Name="EmployeeDataGrid" BorderBrush="Black" Margin="0 0 10 0" Background="Bisque" PreviewKeyDown="EmployeeDataGrid_PreviewKeyDown" SelectionChanged="EmployeeDataGrid_SelectionChanged" IsReadOnly="True"/>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="EmployeeSurname" materialDesign:HintAssist.Hint="Фамилия сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
-                <TextBox x:Name="EmployeeName" materialDesign:HintAssist.Hint="Имя сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
-                <TextBox x:Name="EmployeeMiddleName" materialDesign:HintAssist.Hint="Отчество сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
+                <TextBox x:Name="EmployeeSurname" materialDesign:HintAssist.Hint="Фамилия сотрудника" MaxLength="40" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="EmployeeName_PreviewTextInput"/>
+                <TextBox x:Name="EmployeeName" materialDesign:HintAssist.Hint="Имя сотрудника" MaxLength="40"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="EmployeeName_PreviewTextInput"/>
+                <TextBox x:Name="EmployeeMiddleName" materialDesign:HintAssist.Hint="Отчество сотрудника" MaxLength="40"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="EmployeeName_PreviewTextInput"/>
                 <TextBox x:Name="EmployeePassNum" materialDesign:HintAssist.Hint="Номер паспорта сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" MaxLength="10" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="Employee_PreviewTextInput"/>
                 <TextBox x:Name="EmployeePassSer" materialDesign:HintAssist.Hint="Серия паспорта сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" MaxLength="20" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="Employee_PreviewTextInput"/>
-                <TextBox x:Name="EmployeeAge" materialDesign:HintAssist.Hint="Возраст сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10" PreviewTextInput="Employee_PreviewTextInput"/>
+                <TextBox x:Name="EmployeeAge" materialDesign:HintAssist.Hint="Возраст сотрудника" MaxLength="2"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="Employee_PreviewTextInput"/>
                 <ComboBox x:Name="RolesBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Роль сотрудника"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
                     <Button x:Name="EditButton" Content="Изменить" HorizontalAlignment="Left" Margin="0 0 20 0" Click="EditButton_Click" BorderBrush="Black" Background="Teal"/>

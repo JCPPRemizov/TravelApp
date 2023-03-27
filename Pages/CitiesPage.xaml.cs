@@ -135,5 +135,10 @@ namespace TravelApp.Pages
                 return false;
             }
         }
+
+        private void CityNameBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if(!Char.IsLetter(e.Text, 0)) e.Handled = true;
+        }
     }
 }

@@ -12,7 +12,7 @@
         <StackPanel Orientation="Horizontal">
             <DataGrid x:Name="CountriesDataGrid" BorderBrush="Black" Margin="0 0 10 0" Background="Bisque"  IsReadOnly="True" PreviewKeyDown="CountriesDataGrid_PreviewKeyDown" SelectionChanged="CountriesDataGrid_SelectionChanged" />
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="CountryNameBox" materialDesign:HintAssist.Hint="Страна" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12"/>
+                <TextBox x:Name="CountryNameBox" materialDesign:HintAssist.Hint="Страна" MaxLength="40" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" PreviewTextInput="CountryNameBox_PreviewTextInput" Margin="0 0 0 20"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
                     <Button x:Name="EditButton" Content="Изменить" HorizontalAlignment="Left" Margin="0 0 20 0" Click="EditButton_Click" BorderBrush="Black" Background="Teal"/>
                     <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" BorderBrush="Black" Click="AddButton_Click" Background="Teal" Margin="0 0 20 0"/>

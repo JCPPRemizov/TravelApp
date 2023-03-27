@@ -12,8 +12,8 @@
         <StackPanel Orientation="Horizontal">
             <DataGrid x:Name="CitiesDataGrid" BorderBrush="Black" Margin="0 0 10 0" Background="Bisque"  IsReadOnly="True" SelectionChanged="CitiesDataGrid_SelectionChanged" PreviewKeyDown="CitiesDataGrid_PreviewKeyDown"/>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="CityNameBox" materialDesign:HintAssist.Hint="Город" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin="0 0 0 10"/>
-                <ComboBox x:Name="CountryComboBox" Style="{StaticResource MaterialDesignFilledComboBox}" Margin="0 0 0 10"></ComboBox>
+                <TextBox x:Name="CityNameBox" materialDesign:HintAssist.Hint="Город" MaxLength="40" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin="0 0 0 20" PreviewTextInput="CityNameBox_PreviewTextInput"/>
+                <ComboBox x:Name="CountryComboBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Страна" Margin="0 0 0 10"></ComboBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
                     <Button x:Name="EditButton" Content="Изменить" HorizontalAlignment="Left" Margin="0 0 20 0" Click="EditButton_Click" BorderBrush="Black" Background="Teal"/>
                     <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" BorderBrush="Black" Click="AddButton_Click" Background="Teal"/>

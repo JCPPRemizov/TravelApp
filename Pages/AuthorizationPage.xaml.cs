@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -39,8 +40,12 @@ namespace TravelApp.Pages
                 }
                 else
                 {
-                    authorizationTable.InsertQuery((int)UserIdBox.SelectedValue, LoginTextBox.Text, PassTextBox.Text);
-                    UpdateDataGrid();
+                    var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,40}$";
+                    if (Regex.IsMatch(PassTextBox.Text, pattern))  
+                    {
+                        authorizationTable.InsertQuery((int)UserIdBox.SelectedValue, LoginTextBox.Text, PassTextBox.Text);
+                        UpdateDataGrid();
+                    }
                 }
             }
             catch (Exception ex)
@@ -62,8 +67,12 @@ namespace TravelApp.Pages
                     if (AuthDataGrid.SelectedItem != null)
                     {
                         int authID = (int)(AuthDataGrid.SelectedItem as DataRowView).Row[0];
-                        authorizationTable.UpdateQuery((int)UserIdBox.SelectedValue, LoginTextBox.Text, PassTextBox.Text, authID);
-                        UpdateDataGrid();
+                        var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,40}$";
+                        if (Regex.IsMatch(PassTextBox.Text, pattern))
+                        {
+                            authorizationTable.UpdateQuery((int)UserIdBox.SelectedValue, LoginTextBox.Text, PassTextBox.Text, authID);
+                            UpdateDataGrid();
+                        }
                     }
                     else
                     {
@@ -124,6 +133,11 @@ namespace TravelApp.Pages
         private void UpdateDataGrid()
         {
            AuthDataGrid.ItemsSource = authorizationTable.GetData();
+        }
+
+        private void LoginTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if(!Char.IsLetterOrDigit(e.Text, 0)) e.Handled = true;
         }
     }
 }

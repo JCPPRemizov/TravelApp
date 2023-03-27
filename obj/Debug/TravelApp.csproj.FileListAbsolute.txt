@@ -58,3 +58,5 @@ D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.Sensors.xml
 D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
 D:\CPRJ\TravelApp\TravelApp\bin\Debug\Newtonsoft.Json.dll
 D:\CPRJ\TravelApp\TravelApp\bin\Debug\Newtonsoft.Json.xml
+D:\CPRJ\TravelApp\TravelApp\obj\Debug\Windows\CashierWindow.g.cs
+D:\CPRJ\TravelApp\TravelApp\obj\Debug\Windows\CashierWindow.baml

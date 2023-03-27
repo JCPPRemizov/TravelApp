@@ -12,7 +12,7 @@
         <StackPanel Orientation="Horizontal">
             <DataGrid x:Name="AuthDataGrid" BorderBrush="Black" Margin="0 0 10 0" Background="Bisque" SelectionChanged="AuthDataGrid_SelectionChanged" PreviewKeyDown="AuthDataGrid_PreviewKeyDown" IsReadOnly="True"/>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="LoginTextBox" materialDesign:HintAssist.Hint="Логин пользователя" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
+                <TextBox x:Name="LoginTextBox" materialDesign:HintAssist.Hint="Логин пользователя" MaxLength="40" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="LoginTextBox_PreviewTextInput"/>
                 <TextBox x:Name="PassTextBox" materialDesign:HintAssist.Hint="Пароль пользователя" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
                 <ComboBox x:Name="UserIdBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Пользователь"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">

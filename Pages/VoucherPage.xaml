@@ -12,7 +12,7 @@
         <StackPanel Orientation="Horizontal">
             <DataGrid x:Name="VouchereDataGrid" BorderBrush="Black" Margin="0 0 10 0" Background="Bisque" IsReadOnly="True" PreviewKeyDown="VouchereDataGrid_PreviewKeyDown" SelectionChanged="VouchereDataGrid_SelectionChanged"/>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="VoucherName" materialDesign:HintAssist.Hint="Название путевки" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
+                <TextBox x:Name="VoucherName" materialDesign:HintAssist.Hint="Название путевки" MaxLength="40" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="VoucherName_PreviewTextInput"/>
                 <ComboBox x:Name="EmployeeID" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Сотрудник" Margin="0 0 0 10"/>
                 <ComboBox x:Name="CityID" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Город" Margin="0 0 0 10"/>
                 <ComboBox x:Name="CountryID" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Страна" Margin="0 0 0 10"/>

@@ -154,5 +154,10 @@ namespace TravelApp.Pages
                 MessageBox.Show($"{ex.Message}\nПроверьте, что Вы выбрали файл JSON!");
             }
         }
+
+        private void CountryNameBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0)) e.Handled = true;
+        }
     }
 }

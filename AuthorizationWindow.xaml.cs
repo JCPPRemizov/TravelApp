@@ -1,6 +1,7 @@
 ﻿using MaterialDesignThemes.Wpf;
 using System;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using TravelApp.DataSet1TableAdapters;
@@ -16,6 +17,7 @@ namespace TravelApp
         AuthorizationTableAdapter authorizationAdapter = new AuthorizationTableAdapter();
         EmployeeTableAdapter employeeTableAdapter = new EmployeeTableAdapter();
         AdminWindow adminWindow = new AdminWindow();
+        CashierWindow cashierWindow = new CashierWindow();
         public AuthorizationWindow()
         {
             InitializeComponent();
@@ -42,20 +44,33 @@ namespace TravelApp
         {
             if (!string.IsNullOrEmpty(LoginTextBox.Text) && !string.IsNullOrEmpty(PassTextBox.Password))
             {
-                switch (FindUser(LoginTextBox.Text, PassTextBox.Password))
+                var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$";
+                if (Regex.IsMatch(PassTextBox.Password, pattern))
                 {
-                    case -1:
-                        {
-                            MessageBox.Show("Запись не найдена!");
-                            break;
-                        }
-                    case 1:
-                        {
-                            this.Hide();
-                            AdminWindow.authorizationWindow = this;
-                            adminWindow.Show();
-                            break;
-                        }
+
+
+                    switch (FindUser(LoginTextBox.Text, PassTextBox.Password))
+                    {
+                        case -1:
+                            {
+                                MessageBox.Show("Запись не найдена!");
+                                break;
+                            }
+                        case 1:
+                            {
+                                this.Hide();
+                                AdminWindow.authorizationWindow = this;
+                                adminWindow.Show();
+                                break;
+                            }
+                        case 2:
+                            {
+                                this.Hide();
+                                CashierWindow.authorizationWindow = this;
+                                cashierWindow.Show();
+                                break;
+                            }
+                    }
                 }
             }
             else

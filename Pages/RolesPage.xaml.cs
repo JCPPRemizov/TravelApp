@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,6 +17,8 @@ namespace TravelApp.Pages
     public partial class RolesPage : Page
     {
         RolesTableAdapter rolesTable = new RolesTableAdapter();
+        private object countriesTable;
+
         public RolesPage()
         {
             InitializeComponent();
@@ -112,6 +118,34 @@ namespace TravelApp.Pages
         private void UpdateDataGrid()
         {
             RolesDataGrid.ItemsSource = rolesTable.GetData();
+        }
+
+        private void LoadData_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dialog = new CommonOpenFileDialog();
+                string json = "";
+                if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                {
+                    json = File.ReadAllText(dialog.FileName);
+                    List<Role> list = JsonConvert.DeserializeObject<List<Role>>(json);
+                    foreach (var item in list)
+                    {
+                        rolesTable.InsertQuery(item.role_name);
+                    }
+                }
+                UpdateDataGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}\nПроверьте, что Вы выбрали файл JSON!");
+            }
+        }
+
+        private void RoleBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0)) e.Handled = true;
         }
     }
 }

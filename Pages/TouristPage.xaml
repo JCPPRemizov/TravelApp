@@ -12,12 +12,12 @@
         <StackPanel Orientation="Horizontal">
             <DataGrid x:Name="TouristDataGrid" BorderBrush="Black" Margin="0 0 10 0" Background="Bisque" PreviewKeyDown="TouristDataGrid_PreviewKeyDown" SelectionChanged="TouristDataGrid_SelectionChanged" IsReadOnly="True"/>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="TouristSurname" materialDesign:HintAssist.Hint="Фамилия туриста" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
-                <TextBox x:Name="TouristName" materialDesign:HintAssist.Hint="Имя туриста"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
-                <TextBox x:Name="TouristMiddleName" materialDesign:HintAssist.Hint="Отчество туриста"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
+                <TextBox x:Name="TouristSurname" materialDesign:HintAssist.Hint="Фамилия туриста" MaxLength="40" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="TouristName_PreviewTextInput"/>
+                <TextBox x:Name="TouristName" materialDesign:HintAssist.Hint="Имя туриста" MaxLength="40"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="TouristName_PreviewTextInput"/>
+                <TextBox x:Name="TouristMiddleName" materialDesign:HintAssist.Hint="Отчество туриста" MaxLength="40"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="TouristName_PreviewTextInput"/>
                 <TextBox x:Name="TouristPassNum" materialDesign:HintAssist.Hint="Номер паспорта туриста"  Style="{StaticResource MaterialDesignOutlinedTextBox}" MaxLength="10" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="Tourist_PreviewTextInput"/>
                 <TextBox x:Name="TouristPassSer" materialDesign:HintAssist.Hint="Серия паспорта туриста"  Style="{StaticResource MaterialDesignOutlinedTextBox}" MaxLength="20" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="Tourist_PreviewTextInput"/>
-                <TextBox x:Name="TouristAge" materialDesign:HintAssist.Hint="Возраст туриста"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10" PreviewTextInput="Tourist_PreviewTextInput"/>
+                <TextBox x:Name="TouristAge" materialDesign:HintAssist.Hint="Возраст туриста" MaxLength="2"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10" PreviewTextInput="TouristAge_PreviewTextInput"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
                     <Button x:Name="EditButton" Content="Изменить" HorizontalAlignment="Left" Margin="0 0 20 0" Click="EditButton_Click" BorderBrush="Black" Background="Teal"/>
                     <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" BorderBrush="Black" Click="AddButton_Click" Background="Teal"/>

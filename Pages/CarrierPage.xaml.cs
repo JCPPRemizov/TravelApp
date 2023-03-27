@@ -134,5 +134,10 @@ namespace TravelApp.Pages
         {
             if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
         }
+
+        private void CarrierlNameBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if(!Char.IsLetter(e.Text, 0)) e.Handled=true;
+        }
     }
 }

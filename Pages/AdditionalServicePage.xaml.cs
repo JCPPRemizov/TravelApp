@@ -99,6 +99,10 @@ namespace TravelApp.Pages
             }
         }
 
+        private void ServicePriceBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+        }
         private void ServicesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -130,6 +134,11 @@ namespace TravelApp.Pages
             {
                 return false;
             }
+        }
+
+        private void ServiceNameBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if(!Char.IsLetter(e.Text, 0)) e.Handled = true;
         }
     }
 }

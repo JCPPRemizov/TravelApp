@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\CPRJ\TravelApp\TravelApp\App.xaml
-13215376242
+14-193139432
 
-20-1934456991
+221612808761
 212039841554
-AuthorizationWindow.xaml;Pages\AdditionalServicePage.xaml;Pages\AuthorizationPage.xaml;Pages\CarrierPage.xaml;Pages\CitiesPage.xaml;Pages\CountriesPage.xaml;Pages\EmployeePage.xaml;Pages\HotelsPage.xaml;Pages\ReceiptPage.xaml;Pages\RolesPage.xaml;Pages\TouristPage.xaml;Pages\VoucherPage.xaml;Windows\AdminWindow.xaml;
+AuthorizationWindow.xaml;Pages\AdditionalServicePage.xaml;Pages\AuthorizationPage.xaml;Pages\CarrierPage.xaml;Pages\CitiesPage.xaml;Pages\CountriesPage.xaml;Pages\EmployeePage.xaml;Pages\HotelsPage.xaml;Pages\ReceiptPage.xaml;Pages\RolesPage.xaml;Pages\TouristPage.xaml;Pages\VoucherPage.xaml;Windows\AdminWindow.xaml;Windows\CashierWindow.xaml;
 
-False
+True
 

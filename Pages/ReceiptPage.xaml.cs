@@ -33,6 +33,8 @@ namespace TravelApp.Pages
             VoucherID.ItemsSource = voucherTable.GetData();
             VoucherID.DisplayMemberPath = "voucher_name";
             VoucherID.SelectedValuePath = "voucher_id";
+            ChangeMoney.Text = "";
+            VoucherPrice.Text = "";
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -56,7 +58,7 @@ namespace TravelApp.Pages
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -72,12 +74,21 @@ namespace TravelApp.Pages
                 }
                 else
                 {
+                    var vouchers = voucherTable.GetData();
                     OpenFileDialog openFileDialog = new OpenFileDialog();
+                    int voucherPrice = (int)vouchers.FindByvoucher_id((int)(ReceiptDataGrid.SelectedItem as DataRowView).Row[3])[8];
+                    if (Convert.ToInt32(DeposMoneyBox.Text) < voucherPrice)
+                    {
+                        MessageBox.Show("Внесенных денег не достаточно!");
+                        return;
+                    }
                     receiptTable.InsertQuery(Convert.ToInt32(DeposMoneyBox.Text), (int)TouristID.SelectedValue, (int)VoucherID.SelectedValue);
                     UpdateDataGrid();
+                    ReceiptDataGrid.SelectedIndex = ReceiptDataGrid.Items.Count - 1;
+                    UploadReceipt();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -93,7 +104,7 @@ namespace TravelApp.Pages
                     UpdateDataGrid();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -105,13 +116,15 @@ namespace TravelApp.Pages
             {
                 if (ReceiptDataGrid.SelectedItem != null)
                 {
+                    var vouchers = voucherTable.GetData();
                     DataRowView receipRowView = ReceiptDataGrid.SelectedItem as DataRowView;
                     DeposMoneyBox.Text = receipRowView.Row[1].ToString();
                     TouristID.SelectedValue = Convert.ToInt32(receipRowView.Row[2]);
                     VoucherID.SelectedValue = Convert.ToInt32(receipRowView.Row[3]);
+                    ChangeMoney.Text = "Сдача: " + (Convert.ToInt32(DeposMoneyBox.Text) - Convert.ToInt32(vouchers.FindByvoucher_id((int)(VoucherID.SelectedValue))[8].ToString())).ToString();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -134,6 +147,38 @@ namespace TravelApp.Pages
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
+            UploadReceipt();
+        }
+        private void UploadReceipt()
+        {
+            if (ReceiptDataGrid.SelectedItem != null)
+            {
+                var vouchers = voucherTable.GetData();
+                var tourists = touristTable.GetData();
+                string receiptNum = (ReceiptDataGrid.SelectedItem as DataRowView).Row[0].ToString();
+                string touristName = tourists.FindBytourist_id((int)TouristID.SelectedValue)[1].ToString() + " " + tourists.FindBytourist_id((int)(ReceiptDataGrid.SelectedItem as DataRowView).Row[2])[2].ToString(); ;
+                string voucherName = vouchers.FindByvoucher_id((int)(VoucherID.SelectedValue))[1].ToString();
+                string voucherPrice = vouchers.FindByvoucher_id((int)(VoucherID.SelectedValue))[8].ToString();
+                string deposMoney = (ReceiptDataGrid.SelectedItem as DataRowView).Row[1].ToString();
+                string changeMoney = (Convert.ToInt32(deposMoney) - Convert.ToInt32(voucherPrice)).ToString();
+                string receipt = $"Туристическое агенство\nЧек №{receiptNum}\n{voucherName} - {voucherPrice} руб.\nВыписано на имя: {touristName}\nИтого к оплате: {voucherPrice} руб.\nВнесено: {deposMoney} руб.\nСдача: {changeMoney} руб.";
+                string fileName = $"\\Чек{receiptNum}.txt";
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + fileName, receipt);
+
+            }
+        }
+        private void DeposMoneyBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+        }
+
+        private void VoucherID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (VoucherID.SelectedItem != null)
+            {
+                var vouchers = voucherTable.GetData();
+                VoucherPrice.Text = "Стоимость путевки: " + vouchers.FindByvoucher_id((int)(VoucherID.SelectedValue))[8].ToString();
+            }
         }
     }
 }

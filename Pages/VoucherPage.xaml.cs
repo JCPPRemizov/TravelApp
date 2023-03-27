@@ -30,7 +30,6 @@ namespace TravelApp.Pages
         Additional_servicesTableAdapter servicesTable = new Additional_servicesTableAdapter();
         CarrierTableAdapter carrierTable = new CarrierTableAdapter();
         HotelsTableAdapter hotelsTable = new HotelsTableAdapter();
-        DateTime dateBegin;
         public VoucherPage()
         {
             InitializeComponent();
@@ -194,6 +193,11 @@ namespace TravelApp.Pages
         private void ServiceID_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             ServiceID.SelectedIndex = -1;
+        }
+
+        private void VoucherName_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0)) e.Handled = true;
         }
     }
 }
