@@ -28,7 +28,6 @@ D:\CPRJ\TravelApp\TravelApp\obj\Debug\Windows\AdminWindow.g.cs
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Windows\AdminWindow.baml
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\EmployeePage.g.cs
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\EmployeePage.baml
-D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\AuthorizationPage.g.cs
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\CarrierPage.g.cs
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\CitiesPage.g.cs
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\CountriesPage.g.cs
@@ -37,7 +36,6 @@ D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\ReceiptPage.g.cs
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\RolesPage.g.cs
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\TouristPage.g.cs
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\VoucherPage.g.cs
-D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\AuthorizationPage.baml
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\CarrierPage.baml
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\CitiesPage.baml
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\CountriesPage.baml
@@ -46,3 +44,17 @@ D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\ReceiptPage.baml
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\RolesPage.baml
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\TouristPage.baml
 D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\VoucherPage.baml
+D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\AuthorizationPage.g.cs
+D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\AuthorizationPage.baml
+D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\AdditionalServicePage.g.cs
+D:\CPRJ\TravelApp\TravelApp\obj\Debug\Pages\AdditionalServicePage.baml
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.Sensors.dll
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.xml
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.xml
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.Sensors.xml
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Newtonsoft.Json.dll
+D:\CPRJ\TravelApp\TravelApp\bin\Debug\Newtonsoft.Json.xml

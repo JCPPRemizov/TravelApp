@@ -1,15 +1,16 @@
 ﻿
 FD:\CPRJ\TravelApp\TravelApp\App.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\AuthorizationWindow.xaml;;
-FD:\CPRJ\TravelApp\TravelApp\Windows\AdminWindow.xaml;;
-FD:\CPRJ\TravelApp\TravelApp\Pages\EmployeePage.xaml;;
+FD:\CPRJ\TravelApp\TravelApp\Pages\AdditionalServicePage.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\Pages\AuthorizationPage.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\Pages\CarrierPage.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\Pages\CitiesPage.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\Pages\CountriesPage.xaml;;
+FD:\CPRJ\TravelApp\TravelApp\Pages\EmployeePage.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\Pages\HotelsPage.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\Pages\ReceiptPage.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\Pages\RolesPage.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\Pages\TouristPage.xaml;;
 FD:\CPRJ\TravelApp\TravelApp\Pages\VoucherPage.xaml;;
+FD:\CPRJ\TravelApp\TravelApp\Windows\AdminWindow.xaml;;
 

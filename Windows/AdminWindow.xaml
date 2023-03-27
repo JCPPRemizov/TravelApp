@@ -6,8 +6,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:TravelApp.Windows"
         mc:Ignorable="d"
-        Title="AdminWindow"  WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize">
-    <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="2000" CornerRadius="20" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        Title="AdminWindow"  WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Border Margin="15" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="20" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Border.Effect>
             <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
         </Border.Effect>
@@ -24,18 +24,19 @@
                     </Grid>
                 </Button>
             </StackPanel>
-            <TabControl x:Name="TabControl" Width="1000">
-                <TabItem x:Name="Table1" Header="TAB 1" GotFocus="Table1_GotFocus"/>
-                <TabItem x:Name="Table2" Header="TAB 2" GotFocus="Table1_GotFocus"/>
-                <TabItem x:Name="Table3" Header="TAB 3" GotFocus="Table1_GotFocus"/>
-                <TabItem x:Name="Table4" Header="TAB 4" GotFocus="Table1_GotFocus"/>
-                <TabItem x:Name="Table5" Header="TAB 5" GotFocus="Table1_GotFocus"/>
-                <TabItem x:Name="Table6" Header="TAB 6" GotFocus="Table1_GotFocus"/>
-                <TabItem x:Name="Table7" Header="TAB 7" GotFocus="Table1_GotFocus"/>
-                <TabItem x:Name="Table8" Header="TAB 8" GotFocus="Table1_GotFocus"/>
-                <TabItem x:Name="Table9" Header="TAB 9" GotFocus="Table1_GotFocus"/>
-                <TabItem x:Name="Table10" Header="TAB 10" GotFocus="Table1_GotFocus"/>
-            </TabControl>
+            <ComboBox x:Name="WindowComboBox" SelectionChanged="WindowComboBox_SelectionChanged">
+                <ComboBoxItem x:Name="Box1">РОЛИ</ComboBoxItem>
+                <ComboBoxItem>АВТОРИЗАЦИЯ</ComboBoxItem>
+                <ComboBoxItem>СОТРУДНИКИ</ComboBoxItem>
+                <ComboBoxItem>ТУРИСТЫ</ComboBoxItem>
+                <ComboBoxItem>ПУТЕВКИ</ComboBoxItem>
+                <ComboBoxItem>ДОП.УСЛУГИ</ComboBoxItem>
+                <ComboBoxItem>СТРАНЫ</ComboBoxItem>
+                <ComboBoxItem>ГОРОДА</ComboBoxItem>
+                <ComboBoxItem>ОТЕЛИ</ComboBoxItem>
+                <ComboBoxItem>ПЕРЕВОЗЧИКИ</ComboBoxItem>
+                <ComboBoxItem>ЧЕК</ComboBoxItem>
+            </ComboBox>
             <Frame x:Name="AdminFrame"  HorizontalAlignment="Center"  Margin="0 40 0 0" NavigationUIVisibility="Hidden"/>
             <Button x:Name="ReturnButton" HorizontalAlignment="Left" Width="240" Background="Teal" BorderBrush="Black" Click="ReturnButton_Click" Margin="0 20 0 0">
                 <Grid>

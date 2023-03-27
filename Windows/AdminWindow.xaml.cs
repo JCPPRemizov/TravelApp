@@ -28,8 +28,9 @@ namespace TravelApp.Windows
             new EmployeePage(),
             new TouristPage(),
             new VoucherPage(),
-            new CitiesPage(),
+            new AdditionalServicePage(),
             new CountriesPage(),
+            new CitiesPage(),
             new HotelsPage(),
             new CarrierPage(),
             new ReceiptPage()
@@ -37,7 +38,7 @@ namespace TravelApp.Windows
         public AdminWindow()
         {
             InitializeComponent();
-            TabControl.SelectedIndex = 0;
+            WindowComboBox.SelectedIndex = 0;
         }
 
         private void HideAppButton_Click(object sender, RoutedEventArgs e)
@@ -56,14 +57,15 @@ namespace TravelApp.Windows
             authorizationWindow.Show();
         }
 
-        private void Table1_GotFocus(object sender, RoutedEventArgs e)
-        {
-            AdminFrame.Content = pages[TabControl.SelectedIndex];
-        }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void WindowComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AdminFrame.Content = pages[WindowComboBox.SelectedIndex];
         }
     }
 }

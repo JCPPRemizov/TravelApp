@@ -79,5 +79,11 @@ namespace TravelApp
             }
             return -1;
         }
+
+        private void AufWindow_Activated(object sender, EventArgs e)
+        {
+            LoginTextBox.Text = "";
+            PassTextBox.Password = "";
+        }
     }
 }

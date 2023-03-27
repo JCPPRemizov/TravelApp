@@ -5,22 +5,24 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:TravelApp.Pages"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       Title="EmployeePage" Loaded="Page_Loaded">
 
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <DataGrid x:Name="EmployeeDataGrid" Style="{StaticResource MaterialDesignDataGrid}" BorderBrush="Black" Margin="0 0 10 0">
-
-            </DataGrid>
+            <DataGrid x:Name="EmployeeDataGrid" BorderBrush="Black" Margin="0 0 10 0" Background="Bisque" PreviewKeyDown="EmployeeDataGrid_PreviewKeyDown" SelectionChanged="EmployeeDataGrid_SelectionChanged" IsReadOnly="True"/>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="EmployeeSurname" materialDesign:HintAssist.Hint="Введите фамилию сотрудника" materialDesign:HintAssist.HelperText="Фамилия сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
-                <TextBox x:Name="EmployeeName" materialDesign:HintAssist.Hint="Введите имя сотрудника" materialDesign:HintAssist.HelperText="Имя сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
-                <TextBox x:Name="EmployeeMiddleName" materialDesign:HintAssist.Hint="Введите отчество сотрудника" materialDesign:HintAssist.HelperText="Отчество сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
-                <TextBox x:Name="EmployeePassNum" materialDesign:HintAssist.Hint="Введите номер паспорта сотрудника" materialDesign:HintAssist.HelperText="Номер паспорта сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="EmployeePassNum_PreviewTextInput"/>
-                <TextBox x:Name="EmployeePassSer" materialDesign:HintAssist.Hint="Введите серию паспорта сотрудника" materialDesign:HintAssist.HelperText="Серия паспорта сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
-                <TextBox x:Name="EmployeeAge" materialDesign:HintAssist.Hint="Введите возраст сотрудника" materialDesign:HintAssist.HelperText="Возраст сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 20"/>
-                <ComboBox x:Name="RolesBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Выберите роль"/>
+                <TextBox x:Name="EmployeeSurname" materialDesign:HintAssist.Hint="Фамилия сотрудника" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
+                <TextBox x:Name="EmployeeName" materialDesign:HintAssist.Hint="Имя сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
+                <TextBox x:Name="EmployeeMiddleName" materialDesign:HintAssist.Hint="Отчество сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10"/>
+                <TextBox x:Name="EmployeePassNum" materialDesign:HintAssist.Hint="Номер паспорта сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" MaxLength="10" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="Employee_PreviewTextInput"/>
+                <TextBox x:Name="EmployeePassSer" materialDesign:HintAssist.Hint="Серия паспорта сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" MaxLength="20" FontSize="12" Width="300" Margin ="0 0 0 20" PreviewTextInput="Employee_PreviewTextInput"/>
+                <TextBox x:Name="EmployeeAge" materialDesign:HintAssist.Hint="Возраст сотрудника"  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="12" Width="300" Margin ="0 0 0 10" PreviewTextInput="Employee_PreviewTextInput"/>
+                <ComboBox x:Name="RolesBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Роль сотрудника"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
+                    <Button x:Name="EditButton" Content="Изменить" HorizontalAlignment="Left" Margin="0 0 20 0" Click="EditButton_Click" BorderBrush="Black" Background="Teal"/>
+                    <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" BorderBrush="Black" Click="AddButton_Click" Background="Teal"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>
