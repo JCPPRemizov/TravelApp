@@ -101,7 +101,11 @@ namespace TravelApp.Pages
 
         private void ServicePriceBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только числа!");
+            }
         }
         private void ServicesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -138,7 +142,12 @@ namespace TravelApp.Pages
 
         private void ServiceNameBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if(!Char.IsLetter(e.Text, 0)) e.Handled = true;
+            if(!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только буквы!");
+            }
+                
         }
     }
 }

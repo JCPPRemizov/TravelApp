@@ -163,15 +163,6 @@ namespace TravelApp.Pages
             }
         }
 
-        private void Date_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void VoucherPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
-        }
 
         private void UpdateDataGrid()
         {
@@ -195,9 +186,28 @@ namespace TravelApp.Pages
             ServiceID.SelectedIndex = -1;
         }
 
+        private void Date_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = true;
+            MessageBox.Show("Здесь нельзя писать! Выберите дату, нажав на иконку календаря!");
+        }
+
+        private void VoucherPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только цифры!");
+            }
+        }
+
         private void VoucherName_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsLetter(e.Text, 0)) e.Handled = true;
+            if (!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только буквы!");
+            }
         }
     }
 }

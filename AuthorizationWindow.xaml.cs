@@ -44,8 +44,9 @@ namespace TravelApp
         {
             if (!string.IsNullOrEmpty(LoginTextBox.Text) && !string.IsNullOrEmpty(PassTextBox.Password))
             {
-                var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$";
-                if (Regex.IsMatch(PassTextBox.Password, pattern))
+                var passPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$";
+                string loginPattern = "^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\\d.-]{4,40}$";
+                if (Regex.IsMatch(PassTextBox.Password, passPattern) && Regex.IsMatch(LoginTextBox.Text, loginPattern))
                 {
 
 
@@ -72,6 +73,11 @@ namespace TravelApp
                             }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Логин должен начинаться с буквы и не быть больше 40 символов; " +
+                        "\nПароль должен иметь как минимум одну заглавную букву, одну цифру и один специальный знак. Минимальная длина - 8, максимальная - 40");
+                }
             }
             else
             {
@@ -80,6 +86,7 @@ namespace TravelApp
         }
         private int FindUser(string login, string password)
         {
+            int userID = 0;
             DataTable authTable = authorizationAdapter.GetData();
             for (int i = 0; i < authTable.Rows.Count; i++)
             {
@@ -87,12 +94,15 @@ namespace TravelApp
                 {
                     if (password == (string)authTable.Rows[i][3])
                     {
-                        return Convert.ToInt32(authTable.Rows[i][1]);
+                        userID = Convert.ToInt32(authTable.Rows[i][1]);
+                        return (int)employeeTableAdapter.GetData().FindByemployee_id(userID)[7];
                     }
                 }
 
             }
             return -1;
+            
+            
         }
 
         private void AufWindow_Activated(object sender, EventArgs e)

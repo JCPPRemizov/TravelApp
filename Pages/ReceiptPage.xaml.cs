@@ -169,7 +169,11 @@ namespace TravelApp.Pages
         }
         private void DeposMoneyBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только цифры!");
+            }
         }
 
         private void VoucherID_SelectionChanged(object sender, SelectionChangedEventArgs e)

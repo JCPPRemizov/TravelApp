@@ -128,10 +128,6 @@ namespace TravelApp.Pages
             }
         }
 
-        private void Tourist_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
-        }
 
         private void UpdateDataGrid()
         {
@@ -150,14 +146,23 @@ namespace TravelApp.Pages
             }
         }
 
-        private void TouristName_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void TouristInt_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsLetter(e.Text, 0)) e.Handled = true;
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только цфиры!");
+            }
         }
 
-        private void TouristAge_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void TouristName_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+            if (!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только буквы!");
+            }
         }
+
     }
 }

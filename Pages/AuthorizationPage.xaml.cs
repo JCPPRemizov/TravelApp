@@ -40,11 +40,17 @@ namespace TravelApp.Pages
                 }
                 else
                 {
-                    var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,40}$";
-                    if (Regex.IsMatch(PassTextBox.Text, pattern))  
+                    var passPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,40}$";
+                    string loginPattern = "^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\\d.-]{4,40}$";
+                    if (Regex.IsMatch(PassTextBox.Text, passPattern) && Regex.IsMatch(LoginTextBox.Text, loginPattern))  
                     {
                         authorizationTable.InsertQuery((int)UserIdBox.SelectedValue, LoginTextBox.Text, PassTextBox.Text);
                         UpdateDataGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Логин должен начинаться с буквы и не быть больше 40 символов; " +
+                            "\nПароль должен иметь как минимум одну заглавную букву, одну цифру и один специальный знак. Минимальная длина - 8, максимальная - 40");
                     }
                 }
             }
@@ -67,11 +73,17 @@ namespace TravelApp.Pages
                     if (AuthDataGrid.SelectedItem != null)
                     {
                         int authID = (int)(AuthDataGrid.SelectedItem as DataRowView).Row[0];
-                        var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,40}$";
-                        if (Regex.IsMatch(PassTextBox.Text, pattern))
+                        var passPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,40}$";
+                        string loginPattern = "^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\\d.-]{4,40}$";
+                        if (Regex.IsMatch(PassTextBox.Text, passPattern) && Regex.IsMatch(LoginTextBox.Text, loginPattern))
                         {
                             authorizationTable.UpdateQuery((int)UserIdBox.SelectedValue, LoginTextBox.Text, PassTextBox.Text, authID);
                             UpdateDataGrid();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Логин должен начинаться с буквы и не быть больше 40 символов; " +
+                                "\nПароль должен иметь как минимум одну заглавную букву, одну цифру и один специальный знак. Минимальная длина - 8, максимальная - 40");
                         }
                     }
                     else
@@ -104,6 +116,15 @@ namespace TravelApp.Pages
             }
         }
 
+        private void LoginTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetterOrDigit(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только буквы и цифры!");
+            }
+        }
+
         private void AuthDataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -130,14 +151,10 @@ namespace TravelApp.Pages
                 return false;
             }
         }
+
         private void UpdateDataGrid()
         {
            AuthDataGrid.ItemsSource = authorizationTable.GetData();
-        }
-
-        private void LoginTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if(!Char.IsLetterOrDigit(e.Text, 0)) e.Handled = true;
         }
     }
 }

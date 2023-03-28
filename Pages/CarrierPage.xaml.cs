@@ -132,12 +132,21 @@ namespace TravelApp.Pages
 
         private void CarrierInnBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только цифры!");
+            }
         }
 
         private void CarrierlNameBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if(!Char.IsLetter(e.Text, 0)) e.Handled=true;
+            if(!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только буквы!");
+            }
+               
         }
     }
 }
