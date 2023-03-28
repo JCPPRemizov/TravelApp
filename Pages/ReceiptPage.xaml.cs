@@ -75,7 +75,6 @@ namespace TravelApp.Pages
                 else
                 {
                     var vouchers = voucherTable.GetData();
-                    OpenFileDialog openFileDialog = new OpenFileDialog();
                     int voucherPrice = (int)vouchers.FindByvoucher_id((int)(ReceiptDataGrid.SelectedItem as DataRowView).Row[3])[8];
                     if (Convert.ToInt32(DeposMoneyBox.Text) < voucherPrice)
                     {

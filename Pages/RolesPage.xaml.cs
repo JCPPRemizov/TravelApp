@@ -16,8 +16,7 @@ namespace TravelApp.Pages
     /// </summary>
     public partial class RolesPage : Page
     {
-        RolesTableAdapter rolesTable = new RolesTableAdapter();
-        private object countriesTable;
+        RolesTableAdapter rolesTable = new RolesTableAdapter(); 
 
         public RolesPage()
         {

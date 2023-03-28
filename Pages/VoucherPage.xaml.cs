@@ -82,7 +82,9 @@ namespace TravelApp.Pages
                         {
                             ServiceID.SelectedValue = null;
                         }
-                        voucherTable.UpdateQuery(VoucherName.Text, (int)EmployeeID.SelectedValue, (int)CityID.SelectedValue, (int)CountryID.SelectedValue, (int?)ServiceID.SelectedValue, (int)CarrierID.SelectedValue, (int)HotelID.SelectedValue, Convert.ToInt32(VoucherPrice.Text), DateBegin.Text, DateEnd.Text, VoucherID);
+                        voucherTable.UpdateQuery(VoucherName.Text, (int)EmployeeID.SelectedValue, (int)CityID.SelectedValue, 
+                            (int)CountryID.SelectedValue, (int?)ServiceID.SelectedValue, (int)CarrierID.SelectedValue, 
+                            (int)HotelID.SelectedValue, Convert.ToInt32(VoucherPrice.Text), DateBegin.Text, DateEnd.Text, VoucherID);
                         UpdateDataGrid();
                     }
                     else
@@ -111,7 +113,8 @@ namespace TravelApp.Pages
                     {
                         ServiceID.SelectedValue = null;
                     }
-                    voucherTable.InsertQuery(VoucherName.Text, (int)EmployeeID.SelectedValue, (int)CityID.SelectedValue, (int)CountryID.SelectedValue, (int)ServiceID.SelectedValue, (int)CarrierID.SelectedValue, (int)HotelID.SelectedValue, Convert.ToInt32(VoucherPrice.Text), DateBegin.Text, DateEnd.Text);
+                    voucherTable.InsertQuery(VoucherName.Text, (int)EmployeeID.SelectedValue, (int)CityID.SelectedValue, (int)CountryID.SelectedValue, (int)ServiceID.SelectedValue,
+                        (int)CarrierID.SelectedValue, (int)HotelID.SelectedValue, Convert.ToInt32(VoucherPrice.Text), DateBegin.Text, DateEnd.Text);
                     UpdateDataGrid();
                 }
             }
@@ -171,7 +174,8 @@ namespace TravelApp.Pages
 
         private bool IsFieldsEmpty()
         {
-            if (string.IsNullOrEmpty(VoucherName.Text) || EmployeeID.SelectedItem == null || CityID.SelectedItem == null || CountryID.SelectedItem == null || CarrierID.SelectedItem == null || HotelID.SelectedItem == null || string.IsNullOrEmpty(VoucherPrice.Text) || string.IsNullOrEmpty(DateBegin.Text) || string.IsNullOrEmpty(DateEnd.Text))
+            if (string.IsNullOrEmpty(VoucherName.Text) || EmployeeID.SelectedItem == null || CityID.SelectedItem == null || CountryID.SelectedItem == null || CarrierID.SelectedItem == null 
+                || HotelID.SelectedItem == null || string.IsNullOrEmpty(VoucherPrice.Text) || string.IsNullOrEmpty(DateBegin.Text) || string.IsNullOrEmpty(DateEnd.Text))
             {
                 return true;
             }

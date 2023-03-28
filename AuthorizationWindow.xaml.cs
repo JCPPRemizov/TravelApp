@@ -44,13 +44,13 @@ namespace TravelApp
         {
             if (!string.IsNullOrEmpty(LoginTextBox.Text) && !string.IsNullOrEmpty(PassTextBox.Password))
             {
-                var passPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$";
+                var passPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$";
                 string loginPattern = "^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\\d.-]{4,40}$";
                 if (Regex.IsMatch(PassTextBox.Password, passPattern) && Regex.IsMatch(LoginTextBox.Text, loginPattern))
                 {
 
 
-                    switch (FindUser(LoginTextBox.Text, PassTextBox.Password))
+                    switch (FindUserRole(LoginTextBox.Text, PassTextBox.Password))
                     {
                         case -1:
                             {
@@ -84,9 +84,9 @@ namespace TravelApp
                 MessageBox.Show("Введите логин и пароль!");
             }
         }
-        private int FindUser(string login, string password)
+        private int FindUserRole(string login, string password)
         {
-            int userID = 0;
+            int userID;
             DataTable authTable = authorizationAdapter.GetData();
             for (int i = 0; i < authTable.Rows.Count; i++)
             {

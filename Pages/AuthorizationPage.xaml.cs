@@ -40,7 +40,7 @@ namespace TravelApp.Pages
                 }
                 else
                 {
-                    var passPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,40}$";
+                    string passPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,40}$";
                     string loginPattern = "^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\\d.-]{4,40}$";
                     if (Regex.IsMatch(PassTextBox.Text, passPattern) && Regex.IsMatch(LoginTextBox.Text, loginPattern))  
                     {
@@ -140,6 +140,7 @@ namespace TravelApp.Pages
                 MessageBox.Show(ex.Message);
             }
         }
+
         private bool IsFieldsEmpty()
         {
             if (string.IsNullOrEmpty(LoginTextBox.Text) || string.IsNullOrEmpty(PassTextBox.Text) || UserIdBox.SelectedItem == null)

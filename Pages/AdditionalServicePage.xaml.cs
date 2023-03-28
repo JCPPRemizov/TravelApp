@@ -30,7 +30,7 @@ namespace TravelApp.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            ServicesDataGrid.ItemsSource = servicesTableAdapter.GetData();
+            UpdateDataGrid();
             ServiceNameBox.Text = "";
             ServicePriceBox.Text = "";
         }
@@ -99,14 +99,6 @@ namespace TravelApp.Pages
             }
         }
 
-        private void ServicePriceBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if (!Char.IsDigit(e.Text, 0))
-            {
-                e.Handled = true;
-                MessageBox.Show("Разрешены только числа!");
-            }
-        }
         private void ServicesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -137,6 +129,15 @@ namespace TravelApp.Pages
             else
             {
                 return false;
+            }
+        }
+
+        private void ServicePriceBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+                MessageBox.Show("Разрешены только числа!");
             }
         }
 

@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       Title="TouristPage" Loaded="Page_Loaded">
 
-    <Grid>
+    <Grid Background="White">
         <StackPanel Orientation="Horizontal">
             <DataGrid x:Name="TouristDataGrid" BorderBrush="Black" Margin="0 0 10 0" Background="Bisque" PreviewKeyDown="TouristDataGrid_PreviewKeyDown" SelectionChanged="TouristDataGrid_SelectionChanged" IsReadOnly="True"/>
             <StackPanel Orientation="Vertical">
