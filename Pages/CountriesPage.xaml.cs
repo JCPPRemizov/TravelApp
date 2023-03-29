@@ -141,6 +141,11 @@ namespace TravelApp.Pages
                 if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
                     json = File.ReadAllText(dialog.FileName);
+                    if (json.Length < 1)
+                    {
+                        MessageBox.Show("Файл пустой!");
+                        return;
+                    }
                     List<Country> list = JsonConvert.DeserializeObject<List<Country>>(json);
                     foreach (var item in list)
                     {
